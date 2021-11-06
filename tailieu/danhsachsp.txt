@@ -1,0 +1,6 @@
+# moi dong la 1 sp
+# cac thong tin cua sp cach nhau boi dau , 
+DT, IP13,iPhone 13, iPhone 13 pro max, 30000000
+DT, SSS8, Samsung S8, SamSung S8, 10000000
+MT,HP
+111,222,333
