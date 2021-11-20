@@ -35,31 +35,29 @@ public class FileManager {
         String choose = "";
         do {
             File file = null;
-            for (int i = 0; i < 4; i++) {
-                System.out.println("nhập tên file :");
-                String name = sc.nextLine();
-                file = new File(thumucgoc + "\\" + name);
-                if (!file.exists()) {
-                    try {
-                        file.createNewFile();
-                    } catch (Exception e) {
-                        System.out.println("không thể tạo file");
-                    }
-                }
-                // input data from keyboard
-                System.out.println("nhập dữ liệu vào file :");
-                String data = sc.nextLine();
+            System.out.println("nhập tên để tạo file :");
+            String name = sc.nextLine();
+            file = new File(thumucgoc + "\\" + name);
+            if (!file.exists()) {
                 try {
-                    FileWriter fw = new FileWriter(file);
-                    fw.write(data);
-                    fw.close();
+                    file.createNewFile();
                 } catch (Exception e) {
-                    System.out.println("không thể ghi file");
+                    System.out.println("không thể tạo file");
                 }
             }
-            thumucquanly.newFile(file.getAbsolutePath());
-            System.out.println("bạn có muốn nhập lại (y/n)");
+            // input data from keyboard
+            System.out.println("nhập dữ liệu vào file :");
+            String data = sc.nextLine();
+            try {
+                FileWriter fw = new FileWriter(file);
+                fw.write(data);
+                fw.close();
+            } catch (Exception e) {
+                System.out.println("không thể ghi file");
+            }
+            System.out.println("bạn có muốn thêm file (y/n)");
             choose = sc.nextLine();
+            thumucquanly.newFile(file.getAbsolutePath());
         } while (!"n".equalsIgnoreCase(choose));
 
     }
